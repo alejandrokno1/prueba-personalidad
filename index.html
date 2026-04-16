@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prueba de Personalidad - Nasly Beltrán</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <p class="eyebrow">Coordinación y Asesorías Legales y Académicas</p>
+      <h1>Nasly Beltrán – Prueba de Personalidad</h1>
+      <p class="lead">
+        Esta prueba tiene como finalidad identificar el nivel de ansiedad académica del estudiante.
+        <strong>No existen respuestas correctas o incorrectas</strong>, ya que no se trata de evaluar conocimientos,
+        sino su estado de ánimo, emociones y percepción personal frente a situaciones académicas.
+      </p>
+      <div class="notice">
+        Responda con sinceridad según cómo se ha sentido habitualmente.
+      </div>
+    </header>
+
+    <section class="intro-card">
+      <div>
+        <h2>Instrucciones</h2>
+        <p>
+          A continuación encontrará 35 afirmaciones. Lea cada una con calma y seleccione una sola opción de respuesta.
+        </p>
+        <ul>
+          <li><strong>Nunca</strong></li>
+          <li><strong>A veces</strong></li>
+          <li><strong>Siempre</strong></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Interpretación de resultados</h2>
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th>Puntaje directo</th>
+              <th>Percentil</th>
+              <th>Nivel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>42 - 59</td>
+              <td>33</td>
+              <td>Bajo</td>
+            </tr>
+            <tr>
+              <td>60 - 69</td>
+              <td>66</td>
+              <td>Medio</td>
+            </tr>
+            <tr>
+              <td>70 - 95</td>
+              <td>99</td>
+              <td>Alto</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="small-note">
+          Los resultados se interpretan con base en la tabla proporcionada.
+        </p>
+      </div>
+    </section>
+
+    <section class="progress-card">
+      <div class="progress-header">
+        <h2>Progreso del cuestionario</h2>
+        <span id="progressText">0 de 35 preguntas respondidas</span>
+      </div>
+
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+
+      <div class="progress-percent">
+        <span id="progressPercent">0%</span>
+      </div>
+    </section>
+
+    <form id="quizForm" class="quiz-form">
+      <section class="student-box">
+        <h2>Datos del estudiante</h2>
+        <label for="studentName">Nombre del estudiante (opcional)</label>
+        <input
+          type="text"
+          id="studentName"
+          name="studentName"
+          placeholder="Escriba aquí su nombre"
+        >
+      </section>
+
+      <section class="question-section">
+        <h2>Cuestionario</h2>
+        <div id="questionsContainer"></div>
+      </section>
+
+      <div class="actions">
+        <button type="submit" class="btn primary">Calcular resultado</button>
+        <button type="button" id="resetBtn" class="btn secondary">Limpiar respuestas</button>
+      </div>
+    </form>
+
+    <div id="resultModal" class="modal-overlay hidden">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button type="button" id="closeModalBtn" class="modal-close">&times;</button>
+
+        <h2 id="modalTitle">Resultado</h2>
+        <p id="resultStudent"></p>
+
+        <div class="result-grid">
+          <div class="result-box">
+            <span class="label">Puntaje directo</span>
+            <strong id="scoreValue">0</strong>
+          </div>
+          <div class="result-box">
+            <span class="label">Percentil</span>
+            <strong id="percentileValue">—</strong>
+          </div>
+          <div class="result-box">
+            <span class="label">Nivel</span>
+            <strong id="levelValue">—</strong>
+          </div>
+        </div>
+
+        <p id="resultMessage" class="result-message"></p>
+
+        <p class="small-note">
+          Este resultado es de carácter académico y orientativo. No constituye un diagnóstico clínico.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
