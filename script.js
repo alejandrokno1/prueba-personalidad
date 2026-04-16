@@ -46,7 +46,6 @@ const resultModal = document.getElementById("resultModal");
 const closeModalBtn = document.getElementById("closeModalBtn");
 
 const scoreValue = document.getElementById("scoreValue");
-const percentileValue = document.getElementById("percentileValue");
 const levelValue = document.getElementById("levelValue");
 const resultMessage = document.getElementById("resultMessage");
 const resultStudent = document.getElementById("resultStudent");
@@ -106,33 +105,29 @@ function updateProgress() {
 function classifyScore(score) {
   if (score >= 42 && score <= 59) {
     return {
-      percentile: 33,
       level: "Bajo",
-      message: "El estudiante se ubica en un nivel bajo de ansiedad académica según la tabla de referencia proporcionada.",
+      message: "El resultado indica que el nivel de ansiedad del estudiante es bajo.",
       className: "result-low"
     };
   }
 
   if (score >= 60 && score <= 69) {
     return {
-      percentile: 66,
       level: "Medio",
-      message: "El estudiante se ubica en un nivel medio de ansiedad académica según la tabla de referencia proporcionada.",
+      message: "El resultado indica que el nivel de ansiedad del estudiante es medio.",
       className: "result-medium"
     };
   }
 
   if (score >= 70 && score <= 95) {
     return {
-      percentile: 99,
       level: "Alto",
-      message: "El estudiante se ubica en un nivel alto de ansiedad académica según la tabla de referencia proporcionada.",
+      message: "El resultado indica que el nivel de ansiedad del estudiante es alto.",
       className: "result-high"
     };
   }
 
   return {
-    percentile: "—",
     level: "No evaluable",
     message: "La prueba, con las respuestas que dio, no es suficiente para poderlo evaluar, dado que se sale del rango de calificación permitido.",
     className: "result-neutral"
@@ -221,7 +216,6 @@ quizForm.addEventListener("submit", (event) => {
     : "Resultado general del cuestionario";
 
   scoreValue.textContent = total;
-  percentileValue.textContent = result.percentile;
   levelValue.textContent = result.level;
   resultMessage.textContent = result.message;
 
